@@ -8,9 +8,6 @@
 #include "main.h"
 
 
-//#define StartRamAddress          0x24000004
-//#define EndRamAddress            0x24080004 + 524288
-//
 
 #define LOADER_OK   0x1
 #define LOADER_FAIL 0x0
@@ -56,13 +53,7 @@ int Init(uint8_t configureMemoryMappedMode)
         __set_PRIMASK(1); //disable interrupts
         return LOADER_FAIL;
     }
-//
-    if(!configureMemoryMappedMode)
-    if (CSP_QSPI_EnableMemoryMappedMode() != HAL_OK)
-    {
-        __set_PRIMASK(1); //disable interrupts
-        return LOADER_FAIL;
-    }
+
 
     __set_PRIMASK(1); //disable interrupts
     return LOADER_OK;
