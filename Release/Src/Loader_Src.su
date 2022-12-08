@@ -1,0 +1,6 @@
+../Src/Loader_Src.c:22:5:Init	8	static,ignoring_inline_asm
+../Src/Loader_Src.c:71:5:Write	24	static,ignoring_inline_asm
+../Src/Loader_Src.c:98:5:SectorErase	24	static,ignoring_inline_asm
+../Src/Loader_Src.c:129:5:MassErase	16	static,ignoring_inline_asm
+../Src/Loader_Src.c:162:10:CheckSum	20	static
+../Src/Loader_Src.c:242:10:Verify	32	static,ignoring_inline_asm

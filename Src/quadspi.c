@@ -94,9 +94,9 @@ void MX_QUADSPI_Init(void)
     hqspi.Instance = QUADSPI;
     hqspi.Init.ClockPrescaler = 1;
     hqspi.Init.FifoThreshold = 4;
-    hqspi.Init.SampleShifting = QSPI_SAMPLE_SHIFTING_NONE;
+    hqspi.Init.SampleShifting = QSPI_SAMPLE_SHIFTING_HALFCYCLE;
     hqspi.Init.FlashSize = POSITION_VAL(MEMORY_FLASH_SIZE) - 1;
-    hqspi.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_1_CYCLE;
+    hqspi.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_5_CYCLE;
     hqspi.Init.ClockMode = QSPI_CLOCK_MODE_0;
     hqspi.Init.FlashID = QSPI_FLASH_ID_1;
     hqspi.Init.DualFlash = QSPI_DUALFLASH_DISABLE;
@@ -123,10 +123,10 @@ uint8_t CSP_QUADSPI_Init(void)
         return HAL_ERROR;
     }
 
-    if (QSPI_Configuration() != HAL_OK)
-    {
-        return HAL_ERROR;
-    }
+//    if (QSPI_Configuration() != HAL_OK)
+//    {
+//        return HAL_ERROR;
+//    }
 
     return HAL_OK;
 }
@@ -411,7 +411,7 @@ uint8_t CSP_QSPI_EnableMemoryMappedMode(void)
     sCommand.AlternateBytes    = 0;
 
     sCommand.DataMode          = QSPI_DATA_4_LINES;
-    sCommand.DummyCycles       = 4;
+    sCommand.DummyCycles       = 8;
     sCommand.DdrMode           = QSPI_DDR_MODE_DISABLE;
     sCommand.DdrHoldHalfCycle  = QSPI_DDR_HHC_ANALOG_DELAY;
     sCommand.SIOOMode          = QSPI_SIOO_INST_EVERY_CMD;

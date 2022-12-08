@@ -44,7 +44,7 @@ int Init(uint8_t configureMemoryMappedMode)
     HAL_Init();
 
     SystemClock_Config();
-
+//
     __HAL_RCC_QSPI_FORCE_RESET();  //completely reset peripheral
     __HAL_RCC_QSPI_RELEASE_RESET();
 
